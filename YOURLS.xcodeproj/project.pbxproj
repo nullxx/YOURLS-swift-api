@@ -252,6 +252,7 @@
 		6971D19623E200FB0011E62A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MKCUYH3782;
 				OTHER_LDFLAGS = "-ObjC";
@@ -265,6 +266,7 @@
 		6971D19723E200FB0011E62A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MKCUYH3782;
 				OTHER_LDFLAGS = "-ObjC";
