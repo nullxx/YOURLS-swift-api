@@ -24,6 +24,14 @@ class cusConf {
         return self.apiFilePath
     }
 }
+// MARK: - YOURLSActions
+public struct YOURLSActions {
+    static let shorturl = "shorturl"
+    static let expand = "expand"
+    static let urlStats = "url-stats"
+    static let stats = "stats"
+    static let dbStats = "db-stats"
+}
 // MARK: - httpMethod
 public struct httpMethod {
     static let GET = "GET"
@@ -31,29 +39,52 @@ public struct httpMethod {
 }
 // MARK: - YOURLSResponse
 public struct YOURLSResponse: Codable {
-    let url: URLClass?
-    let stats: Stats?
-    let status, message, title, shorturl: String?
-    let statusCode: Int?
-    let errorCode: Int?
+    public let url: URLClass?
+    public let stats: Stats?
+    public let status, message, title, shorturl, longurl, keyword: String?
+    public let statusCode: Int?
+    public let link: Link?
+    public let links: Dictionary<String, Link?>?
+    public let dbStats: Stats?
+    public let errorCode: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case url
+        case stats
+        case status
+        case message
+        case title
+        case shorturl
+        case longurl
+        case keyword
+        case statusCode
+        case link
+        case links
+        case dbStats = "db-stats"
+        case errorCode
+    }
 }
 // MARK: - URLClass
-struct URLClass: Codable {
-    let keyword, url, title, date: String?
-    let ip: String?
+public struct URLClass: Codable {
+    public let keyword, url, title, date: String?
+    public let ip: String?
 }
 // MARK: - Stats
-struct Stats: Codable {
-    let totalLinks, totalClicks: String?
+public struct Stats: Codable {
+    public let totalLinks, totalClicks: String?
 
     enum CodingKeys: String, CodingKey {
         case totalLinks = "total_links"
         case totalClicks = "total_clicks"
     }
 }
-
+// MARK: - Link
+public struct Link: Codable {
+    let shorturl, url: String
+    let title, timestamp, ip, clicks: String
+}
 // MARK: - Errors
-enum YOURLSErr: Error {
-    case invalidConnection
+enum YOURLSErr: String, Error {
+    case invalidConnection = "Check the configurations"
 }
 

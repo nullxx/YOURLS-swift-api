@@ -9,7 +9,7 @@
 import Foundation
 
 public class tools{
-    static public func sendHTTP(url: String, method: String, urlParams: Dictionary<String, Any>, bodyParams: Dictionary<String, Any>)-> YOURLSResponse {
+    static public func sendHTTP(url: String, method: String, urlParams: Dictionary<String, Any>, bodyParams: Dictionary<String, Any>) -> YOURLSResponse {
         var finalResp: YOURLSResponse? = nil
         let semaphore = DispatchSemaphore (value: 0)
         
@@ -35,7 +35,7 @@ public class tools{
     }
 }
 
-func dictToString(_ dict: Dictionary<String, Any>)-> String{
+func dictToString(_ dict: Dictionary<String, Any>) -> String{
     var finalString = ""
     for p in dict{
         let toAppend = "\(p.key)=\(p.value)"
