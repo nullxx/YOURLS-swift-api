@@ -48,3 +48,16 @@ func dictToString(_ dict: Dictionary<String, Any>) -> String{
     return  finalString
 
 }
+
+// This extension ads the ability to encode and decode URL to support URLs with Arabic and other non latin letters.
+extension String{
+    func encodeUrl() -> String
+    {
+        return self.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) ?? ""
+    }
+    
+    func decodeUrl() -> String
+    {
+        return self.removingPercentEncoding ?? ""
+    }
+}
