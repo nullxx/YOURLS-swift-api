@@ -79,9 +79,11 @@ public struct Stats: Codable {
     }
 }
 // MARK: - Link
+// Making title optional to supprt old versions of YOURLS.
 public struct Link: Codable {
     let shorturl, url: String
-    let title, timestamp, ip, clicks: String
+    let timestamp, ip, clicks: String
+    var title:String?
 }
 // MARK: - Errors
 enum YOURLSErr: String, Error {
