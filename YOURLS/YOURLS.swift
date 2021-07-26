@@ -37,7 +37,7 @@ public class YOURLS {
         }
     }
     public func short(url: String, with: String = "", title: String = "") -> YOURLSResponse {
-        return tools.sendHTTP(url: "\(self.getScheme())://\(domain)/\(cusConfig.getApiFilePath())", method: httpMethod.GET, urlParams: ["signature": self.signature, "action": YOURLSActions.shorturl, "url": url,"title": title, "keyword": with], bodyParams: [:])
+        return tools.sendHTTP(url: "\(self.getScheme())://\(domain)/\(cusConfig.getApiFilePath())", method: httpMethod.GET, urlParams: ["signature": self.signature, "action": YOURLSActions.shorturl, "url": url.endIndex,"title": title, "keyword": with], bodyParams: [:])
     }
     public func expand(from keyword: String) -> YOURLSResponse {
         return tools.sendHTTP(url: "\(self.getScheme())://\(domain)/\(cusConfig.getApiFilePath())", method: httpMethod.GET, urlParams: ["signature": self.signature, "action": YOURLSActions.expand, "keyword": keyword], bodyParams: [:])
